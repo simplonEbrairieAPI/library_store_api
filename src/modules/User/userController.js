@@ -17,6 +17,22 @@ class UserController {
     }
   }
 
+  getOne = async (req,res) => {
+    // console.log('find one user');
+    // console.log(req.params.id);
+    try {
+      let findUser = req.params.id;
+      // console.log(req.params.id);
+      let user = await this.userService.getOne(findUser);
+      res.status(200).json(user);
+      
+
+    } catch (err) {
+      console.log('nobody\'s there');
+      res.status(400).json('error in findoneuser', err.message);
+    }
+  };
+
   // register = async (req, res) => {
   //   try {
   //     const user = await this.userService.register({ ...req.body });

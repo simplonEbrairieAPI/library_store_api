@@ -15,6 +15,9 @@ class UserRouter {
       .get((req, res) => {
         res.json({ message: "YOOOO you are on the home page" })
       })
+
+    this.router.route('/users/:id')
+      .get(userController.getOne)
   }
 }
 
