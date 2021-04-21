@@ -13,6 +13,13 @@ class UserService {
     return users.map((user) => new UserEntity(user));
   }
 
+  async getOne(findUser) {
+    // console.log("service ok")
+    const user = await this.userRepo.findOneUser(findUser);
+    // console.log('oneuserservice', user);
+    return user
+  }
+
   // async register(userData) {
   //   const userEntity = new UserEntity(userData);
   //   if (!userEntity.validate())

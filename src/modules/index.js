@@ -1,4 +1,5 @@
 import userRouter from './User';
+import authorRouter from './Author';
 import comicsRouter from './TypeOfBook/Comics';
 import journalRouter from './TypeOfBook/Journal';
 import mangaRouter from './TypeOfBook/Manga';
@@ -12,7 +13,8 @@ const routes =
     journalRouter, 
     mangaRouter,
     novelRouter, 
-    pocketBookRouter
+    pocketBookRouter, 
+    authorRouter
   ];
 
 export default routes;

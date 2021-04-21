@@ -8,8 +8,14 @@ class UserRepository {
   }
 
   async findAllUsers() {
-    console.log('4,1')
+    // console.log('4,1')
     return await this.userDao.findAll();
+  }
+  findAllBookByAuthor
+
+  async findOneUser(findUser) {
+    // console.log('repfindone', findUser)
+    return await this.userDao.findOne({where: {id:findUser}})
   }
 
   // async create(userEntity) {
