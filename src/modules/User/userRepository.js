@@ -11,6 +11,7 @@ class UserRepository {
     console.log('4,1')
     return await this.userDao.findAll();
   }
+  findAllBookByAuthor
 
   // async create(userEntity) {
   // const salt = this.bcrypt.genSaltSync(10);
