@@ -15,7 +15,7 @@ dev  <--  branchfeature ask a pull request
 
 Someone of your team as to validate your pull request.
 
-### !!!!!!Never work directly with on DEV or on MAIN branch!!!!!
+### !!!!!!Never work directly on DEV or on MAIN branch!!!!!
 
 
 
