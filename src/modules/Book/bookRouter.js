@@ -8,7 +8,7 @@ class BookRouter {
   initializeRoutes({ bookController }) {
     console.log("1")
 
-    this.router.route('/users')
+    this.router.route('/books')
       .get(bookController.getAll)
 
     this.router.route('/')
