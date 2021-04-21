@@ -11,6 +11,7 @@ class UserRepository {
     // console.log('4,1')
     return await this.userDao.findAll();
   }
+  findAllBookByAuthor
 
   async findOneUser(findUser) {
     // console.log('repfindone', findUser)
