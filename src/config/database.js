@@ -25,4 +25,5 @@ sequelize
 
 const db = { sequelize, Sequelize }
 // db.sequelize.sync();
+
 export default db;
