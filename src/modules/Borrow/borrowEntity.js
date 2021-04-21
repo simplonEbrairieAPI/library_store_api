@@ -1,9 +1,9 @@
 class BorrowEntity {
 
-  constructor({ id, userId, resourceId, transaction }) {
+  constructor({ id, userId, bookId, transaction }) {
     this.id = id;
     this.userId = userId;
-    this.resourceId = resourceId;
+    this.resourceId = bookId;
     this.transaction = transaction;
   }
 

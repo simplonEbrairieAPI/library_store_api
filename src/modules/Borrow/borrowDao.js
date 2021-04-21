@@ -6,7 +6,7 @@ class BorrowDao extends Model {
     return super.init(
       {
         userId: DataTypes.INTEGER,
-        resourceId: DataTypes.INTEGER,
+        bookId: DataTypes.INTEGER,
         transaction: DataTypes.STRING,
       },
       { sequelize, modelName: 'Borrow' }
@@ -20,9 +20,9 @@ class BorrowDao extends Model {
     //       foreignKey: "userId",
     //     }
     //   );
-    this.hasMany(models.ResourceDao, {
+    this.hasMany(models.BookDao, {
       foreignKey: {
-        name: "resourceId",
+        name: "bookId",
       }
     });
     return this;
