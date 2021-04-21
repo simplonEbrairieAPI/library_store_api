@@ -11,9 +11,9 @@ class AuthorRouter {
 
 
 
-    this.router.route('/')
+    this.router.route('/author')
       .get((req, res) => {
-        res.json({ message: "YOOOO you are on the home page" })
+        res.json({ message: "Hello Author ça va ?" })
       })
   }
 }
