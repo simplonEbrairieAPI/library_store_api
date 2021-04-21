@@ -6,11 +6,8 @@ class UserRouter {
   }
 
   initializeRoutes({ userController }) {
-    console.log("1")
-
     this.router.route('/users')
       .get(userController.getAll)
-
     this.router.route('/')
       .get((req, res) => {
         res.json({ message: "YOOOO you are on the home page" })
@@ -22,13 +19,3 @@ class UserRouter {
 }
 
 export default UserRouter;
-
-  // initializeRoutes({ auth, userController }) {
-    // this.router.route('/users')
-      // .get(auth.authenticate, userController.getAll)
-      // .post(userController.register);
-
-    // this.router.route('/users/authenticate').post(userController.login);
-  // }
-
-
