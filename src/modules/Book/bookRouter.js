@@ -1,19 +1,17 @@
 class BookRouter {
-  constructor({ router, bookController }) {
+  constructor({ router }) {
     this.router = router;
-    this.initializeRoutes({ bookController });
+    this.initializeRoutes(
+      // { bookController }
+    );
     return this.router;
   }
 
-  initializeRoutes({ bookController }) {
-    console.log("1")
-
+  initializeRoutes() {
     this.router.route('/books')
-      .get(bookController.getAll)
-
-    this.router.route('/')
+      // .get(bookController.getAll)
       .get((req, res) => {
-        res.json({ message: "YOOOO you are on the home page" })
+        res.json({ message: " book ça va ?" })
       })
   }
 }
