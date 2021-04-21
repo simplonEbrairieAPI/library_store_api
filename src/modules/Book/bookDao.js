@@ -4,8 +4,9 @@ class Book extends Model {
   static init(sequelize, DataTypes) {
     return super.init(
       {
-        id: DataTypes.STRING,
-
+        title: DataTypes.STRING,
+        description: DataTypes.STRING,
+        editors: DataTypes.STRING,
       }, { sequelize, modelName: 'Book' }
     );
   }
