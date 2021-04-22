@@ -7,11 +7,10 @@ import AuthorRouter from './authorRouter';
 
 const router = Router();
 
-const authorDao = AuthorDao.init(db.sequelize, DataTypes);
-const authorAssociation = AuthorDao.associate(db.sequelize.models);
+// const authorDao = AuthorDao.init(db.sequelize, DataTypes);
 
 const authorRouter = new AuthorRouter({ router });
 
-export { authorDao };
+export { AuthorDao };
 
 export default authorRouter;
