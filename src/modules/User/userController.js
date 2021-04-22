@@ -12,7 +12,7 @@ class UserController {
     }
   }
 
-  getOne = async (req,res) => {
+  getOne = async (req, res) => {
     try {
       let findUser = req.params.id;
       let user = await this.userService.getOne(findUser);
@@ -33,6 +33,7 @@ class UserController {
   //   }
   // }
 
+
   // login = async (req, res) => {
   //   try {
   //     const user = await this.userService.login({ ...req.body });
@@ -43,7 +44,6 @@ class UserController {
   //     res.status(400).json(err.message);
   //   }
   // }
-
 }
 
 export default UserController;

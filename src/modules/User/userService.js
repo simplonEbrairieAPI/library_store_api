@@ -1,6 +1,6 @@
 import UserEntity from './userEntity';
 class UserService {
-  constructor(userRepository) {
+  constructor({ userRepository }) {
     this.userRepo = userRepository;
   }
 
@@ -16,8 +16,21 @@ class UserService {
 
   // async register(userData) {
   //   const userEntity = new UserEntity(userData);
+  //   console.log("qjqjqjqqjqjqjqjqj register of USERSERVICE ", userEntity)
+  //   // if (!userEntity.validate())
+  //   //   throw new Error('User entity validation error: Missing parameters');
+
+  //   const newUser = await this.userRepo.createUser(userEntity);
+  //   console.log("newuser ca donne quoi service", newUser)
+
+  //   return new UserEntity(newUser);
+  // }
+
+
+  // async register(userData) {
+  //   const userEntity = new UserEntity(userData);
   //   if (!userEntity.validate())
-  //     throw new Error('User entity validation error: Missing parameters');
+  //     throw new this.ErrorHandler(400, 'Missing required email and password fields');
 
   //   const newUser = await this.userRepo.create(userEntity);
   //   await this.mailer.sendMail(userEntity);
@@ -38,6 +51,7 @@ class UserService {
   //     throw new Error('Password do not match');
 
   //   return new UserEntity(user);
-  // }
 }
+
 export default UserService;
+
