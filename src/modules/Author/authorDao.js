@@ -1,6 +1,5 @@
 import { Model } from 'sequelize';
 
-
 class Author extends Model {
   static init(sequelize, DataTypes) {
     return super.init(
@@ -10,8 +9,9 @@ class Author extends Model {
       }, { sequelize, modelName: 'Author' }
     );
   }
-  static associate(book) {
+  static associate() {
     // define association here
+    Author.belongsToMany(Book, { through: Copyright });
 
     return this;
   }

@@ -31,14 +31,14 @@ import { MangaDao } from './TypeOfBook/Manga';
 import { NovelDao } from './TypeOfBook/Novel';
 import { PocketBookDao } from './TypeOfBook/PocketBook';
 
-class Associations {
-  static associate() {
-    AuthorDao.belongsToMany(BookDao, { through: "copyright" });
-    BookDao.belongsToMany(AuthorDao, { through: "copyright" });
-    return this;
-  }
-}
+// class Associations {
+//   static associate() {
+//     AuthorDao.belongsToMany(BookDao, { through: "copyright" });
+//     BookDao.belongsToMany(AuthorDao, { through: "copyright" });
+//     return this;
+//   }
+// }
 
-Associations.associate()
+// Associations.associate()
 
 export default routes;

@@ -25,7 +25,41 @@ sequelize
 
 const db = { sequelize, Sequelize }
 
-// db.sequelize.sync();
+// Config locate each Dao to do Association
+import fs from 'fs';
+import path from 'path';
+const basename = path.basename(__filename);
 
+const allModulesFolders = fs.readdirSync('./src/modules/');
+allModulesFolders.forEach(folder => {
+
+  console.log("1 --- each folder in modules",folder)
+
+  if(folder !== 'index.js'){
+    fs.readdirSync("./src/modules/"+folder)
+      .filter((file) => {
+        return (
+          file.indexOf('.') !== 0 &&
+          file !== basename &&
+          file.slice(-6) === 'Dao.js'
+        ); 
+      })
+      .forEach((file) => {
+        const model = path.join(
+          `./src/modules/${folder}`,
+          file
+        )
+        db[model.name] = model;
+        console.log("2 --- is it the correct dao file for model :",model)
+      })
+  }});
+
+Object.keys(db).forEach((modelName) => {
+  if (db[modelName].associate) {
+    db[modelName].associate(db);
+  }
+});
+
+// db.sequelize.sync();
 
 export default db;

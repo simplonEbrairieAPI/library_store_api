@@ -10,9 +10,9 @@ class Book extends Model {
       }, { sequelize, modelName: 'Book' }
     );
   }
-  static associate(models) {
+  static associate() {
     // define association here
-
+    Book.belongsToMany(Author, { through: Copyright });
     return this;
   }
 };
