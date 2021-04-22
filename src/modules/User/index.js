@@ -10,6 +10,7 @@ import UserService from './userService';
 import UserController from "./userController"
 import UserRouter from './userRouter';
 
+
 const router = Router();
 
 const userRepository = new UserRepository({ userDao: UserDao, bcrypt });
