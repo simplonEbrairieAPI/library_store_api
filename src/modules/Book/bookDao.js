@@ -7,13 +7,22 @@ class Book extends Model {
         title: DataTypes.STRING,
         description: DataTypes.STRING,
         editors: DataTypes.STRING,
+        authorId: DataTypes.INTEGER,
       }, { sequelize, modelName: 'Book' }
     );
   }
-  static associate() {
+
+  static associate(models) {
+    // console.log("bababababa", models)
     // define association here
-    Book.belongsToMany(Author, { through: Copyright });
+    // this.belongsTo(models.Author, { through: Copyright });
+    // this.belongsTo(models.Author, {
+    //   as: "author",
+    //   foreignKey: 'authorId'
+    // });
+
     return this;
+
   }
 };
 
