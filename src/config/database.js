@@ -32,34 +32,52 @@ const basename = path.basename(__filename);
 
 const allModulesFolders = fs.readdirSync('./src/modules/');
 allModulesFolders.forEach(folder => {
-
-  console.log("1 --- each folder in modules",folder)
-
-  if(folder !== 'index.js'){
-    fs.readdirSync("./src/modules/"+folder)
+  if (folder !== 'index.js') {
+    fs.readdirSync("./src/modules/" + folder)
       .filter((file) => {
         return (
           file.indexOf('.') !== 0 &&
           file !== basename &&
           file.slice(-6) === 'Dao.js'
-        ); 
+        );
       })
       .forEach((file) => {
-        const model = path.join(
-          `./src/modules/${folder}`,
-          file
-        )
-        db[model.name] = model;
-        console.log("2 --- is it the correct dao file for model :",model)
+        const model = require(path.join(
+          `../modules/${folder}/${file}`
+        ))
+        const fileName = (file.charAt(0).toUpperCase() + file.slice(1)).replace("Dao.js", "");
+        db.sequelize.models[fileName] = model.default;
       })
-  }});
-
-Object.keys(db).forEach((modelName) => {
-  if (db[modelName].associate) {
-    db[modelName].associate(db);
+  } if (folder === 'TypeOfBook') {
+    const typeOfBookFolder = fs.readdirSync("./src/modules/TypeOfBook")
+    typeOfBookFolder.forEach(folderOfFolder => {
+      if (folder !== 'index.js') {
+        fs.readdirSync("./src/modules/TypeOfBook/" + folderOfFolder)
+          .filter((file) => {
+            return (
+              file.indexOf('.') !== 0 &&
+              file !== basename &&
+              file.slice(-6) === 'Dao.js'
+            );
+          })
+          .forEach((file) => {
+            const model = require(path.join(
+              `../modules/TypeOfBook/${folderOfFolder}/${file}`
+            ))
+            const fileName = (file.charAt(0).toUpperCase() + file.slice(1)).replace("Dao.js", "")
+            db.sequelize.models[fileName] = model.default
+          })
+      }
+    })
   }
 });
 
-// db.sequelize.sync();
+Object.keys(db.sequelize.models).forEach((modelName) => {
+  if (db.sequelize.models[modelName]) {
+    db.sequelize.models[modelName].associate(db.sequelize.modelName);
+  }
+});
+
+// db.sequelize.sync({ force: true });
 
 export default db;
