@@ -20,25 +20,4 @@ const routes =
     bookRouter
   ];
 
-
-// Associations 
-import { UserDao } from './User';
-import { AuthorDao } from './Author';
-import { BookDao } from './Book';
-import { ComicsDao } from './TypeOfBook/Comics';
-import { JournalDao } from './TypeOfBook/Journal';
-import { MangaDao } from './TypeOfBook/Manga';
-import { NovelDao } from './TypeOfBook/Novel';
-import { PocketBookDao } from './TypeOfBook/PocketBook';
-
-// class Associations {
-//   static associate() {
-//     AuthorDao.belongsToMany(BookDao, { through: "copyright" });
-//     BookDao.belongsToMany(AuthorDao, { through: "copyright" });
-//     return this;
-//   }
-// }
-
-// Associations.associate()
-
 export default routes;
