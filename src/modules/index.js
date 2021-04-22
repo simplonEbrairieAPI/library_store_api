@@ -1,4 +1,3 @@
-// Routes
 import userRouter from './User';
 import authorRouter from './Author';
 import bookRouter from './Book';
@@ -7,6 +6,7 @@ import journalRouter from './TypeOfBook/Journal';
 import mangaRouter from './TypeOfBook/Manga';
 import novelRouter from './TypeOfBook/Novel';
 import pocketBookRouter from './TypeOfBook/PocketBook';
+
 import config from '../config/env'
 import db from '../config/database'
 import fs from 'fs';
@@ -56,9 +56,17 @@ allModulesFolders.forEach(folder => {
   }
 });
 
+Object.keys(db.sequelize.models).forEach((modelName) => {
+  if (db.sequelize.models[modelName]) {
+    db.sequelize.models[modelName].associate(db.sequelize.models);
+  }
+});
+
+// console.log(db.sequelize.models)
+
 db.sequelize
   // .authenticate()
-  .sync()
+  .sync({ force: true })
   .then(() => {
     console.log(
       `Connection to ${config.database_name} has been established successfully.`
@@ -67,8 +75,6 @@ db.sequelize
   .catch((error) => {
     console.error('Unable to connect to the database:', error);
   });
-
-
 
 
 const routes =
