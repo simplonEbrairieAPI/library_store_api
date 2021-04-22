@@ -65,6 +65,7 @@ allModulesFolders.forEach(folder => {
               `../modules/TypeOfBook/${folderOfFolder}/${file}`
             ))
             const fileName = (file.charAt(0).toUpperCase() + file.slice(1)).replace("Dao.js", "")
+
             db.sequelize.models[fileName] = model.default
           })
       }
@@ -72,11 +73,11 @@ allModulesFolders.forEach(folder => {
   }
 });
 
-Object.keys(db.sequelize.models).forEach((modelName) => {
-  if (db.sequelize.models[modelName]) {
-    db.sequelize.models[modelName].associate(db.sequelize.modelName);
-  }
-});
+// Object.keys(db.sequelize.models).forEach((modelName) => {
+//   if (db.sequelize.models[modelName]) {
+//     db.sequelize.models[modelName].associate(db.sequelize.models);
+//   }
+// });
 
 // db.sequelize.sync({ force: true });
 
