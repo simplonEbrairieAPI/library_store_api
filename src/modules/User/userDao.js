@@ -1,6 +1,5 @@
-import { Model } from 'sequelize';
+import { Model, DataTypes } from 'sequelize';
 import db from '../../config/database';
-import { DataTypes } from 'sequelize';
 
 class User extends Model {
   static init(sequelize, DataTypes) {
@@ -11,7 +10,7 @@ class User extends Model {
         email: DataTypes.STRING,
         password: DataTypes.STRING,
         role: DataTypes.STRING
-      }, { sequelize, modelName: 'User' }
+      }, { sequelize, modelName: 'User', freezeTableName: true, timestamps: false }
     );
   }
   static associate(models) {
@@ -22,7 +21,6 @@ class User extends Model {
 };
 
 User.init(db.sequelize, DataTypes);
-User.associate(db.sequelize.models);
 
 export default User;
 
