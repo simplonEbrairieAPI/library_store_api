@@ -1,3 +1,4 @@
+// Routes
 import userRouter from './User';
 import authorRouter from './Author';
 import bookRouter from './Book';
@@ -7,24 +8,14 @@ import mangaRouter from './TypeOfBook/Manga';
 import novelRouter from './TypeOfBook/Novel';
 import pocketBookRouter from './TypeOfBook/PocketBook';
 
-//Associations 
-class Associations {
-
-  static associate(book) {
-    // define association here
-
-    return this;
-  }
-}
-
-const routes = 
+const routes =
   [
-    userRouter, 
-    comicsRouter, 
-    journalRouter, 
+    userRouter,
+    comicsRouter,
+    journalRouter,
     mangaRouter,
-    novelRouter, 
-    pocketBookRouter, 
+    novelRouter,
+    pocketBookRouter,
     authorRouter,
     bookRouter
   ];

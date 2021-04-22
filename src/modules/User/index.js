@@ -10,7 +10,6 @@ import UserRouter from './userRouter';
 
 const router = Router();
 const userDao = User.init(db.sequelize, DataTypes);
-console.log("1.0 cou", typeof userDao)
 const userRepository = new UserRepository(userDao);
 const userService = new UserService(userRepository);
 const userController = new UserController({ userService })

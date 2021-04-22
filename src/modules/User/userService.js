@@ -2,21 +2,15 @@ import UserEntity from './userEntity';
 class UserService {
   constructor(userRepository) {
     this.userRepo = userRepository;
-    // this.mailer = mailer;
-    console.log('labas')
   }
 
   async getAll() {
-    console.log("3")
     const users = await this.userRepo.findAllUsers();
-    console.log("3,5", users)
     return users.map((user) => new UserEntity(user));
   }
 
   async getOne(findUser) {
-    // console.log("service ok")
     const user = await this.userRepo.findOneUser(findUser);
-    // console.log('oneuserservice', user);
     return user
   }
 

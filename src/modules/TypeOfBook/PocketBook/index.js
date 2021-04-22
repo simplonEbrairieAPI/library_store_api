@@ -2,7 +2,7 @@ import { Router } from 'express';
 import { DataTypes } from 'sequelize';
 import db from '../../../config/database';
 
-import Type_PocketBook from './pocketBookDao';
+import Type_PocketBook from './type_PocketBookDao';
 import PocketBookRepository from './pocketBookRepository';
 import PocketBookService from './pocketBookService';
 import PocketBookController from './pocketBookController';

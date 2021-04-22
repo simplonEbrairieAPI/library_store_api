@@ -2,8 +2,6 @@ import BookEntity from './bookEntity';
 class BookService {
   constructor(bookRepository) {
     this.bookRepo = bookRepository;
-
-    console.log('labas')
   }
 
   async getAll() {

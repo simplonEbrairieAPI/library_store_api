@@ -3,7 +3,6 @@
 //   constructor(userRepository) {
 //     this.userRepo = userRepository;
 //     // this.mailer = mailer;
-//     console.log('labas')
 //   }
 
 //   async getAll() {
