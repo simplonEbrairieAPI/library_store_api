@@ -2,7 +2,7 @@ import { Router } from 'express';
 import { DataTypes } from 'sequelize';
 import db from '../../../config/database';
 
-import Type_Journal from './journalDao';
+import Type_Journal from './type_journalDao';
 import JournalRepository from './journalRepository';
 import JournalService from './journalService';
 import JournalController from './journalController';

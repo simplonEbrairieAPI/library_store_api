@@ -1,20 +1,13 @@
 class UserRepository {
-
   constructor(userDao) {
     this.userDao = userDao;
-    // this.bcrypt = bcrypt;
-    console.log('4,0', this.userDao)
-
   }
 
   async findAllUsers() {
-    // console.log('4,1')
     return await this.userDao.findAll();
   }
-  findAllBookByAuthor
 
   async findOneUser(findUser) {
-    // console.log('repfindone', findUser)
     return await this.userDao.findOne({where: {id:findUser}})
   }
 
@@ -29,7 +22,6 @@ class UserRepository {
   // }
 
   // compareHash = async (password, hash) => await this.bcrypt.compareSync(password, hash);
-
 }
 
 export default UserRepository;

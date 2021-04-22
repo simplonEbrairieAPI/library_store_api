@@ -9,13 +9,13 @@ import AuthorDao from './authorDao';
 import AuthorRouter from './authorRouter';
 
 const router = Router();
-
+// console.log("2")
 const authorDao = AuthorDao.init(db.sequelize, DataTypes);
 // const userRepository = new UserRepository(userDao);
 // const userService = new UserService(userRepository);
 // const userController = new UserController({ userService })
 
-
+// console.log("3")
 const authorRouter = new AuthorRouter({ router });
 
 export { authorDao };

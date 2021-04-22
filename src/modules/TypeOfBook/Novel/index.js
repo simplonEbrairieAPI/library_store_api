@@ -2,7 +2,7 @@ import { Router } from 'express';
 import { DataTypes } from 'sequelize';
 import db from '../../../config/database';
 
-import Type_Novel from './novelDao';
+import Type_Novel from './type_novelDao';
 import NovelRepository from './novelRepository';
 import NovelService from './novelService';
 import NovelController from './novelController';

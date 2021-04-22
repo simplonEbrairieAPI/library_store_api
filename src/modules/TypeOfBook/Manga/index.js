@@ -2,7 +2,7 @@ import { Router } from 'express';
 import { DataTypes } from 'sequelize';
 import db from '../../../config/database';
 
-import Type_Manga from './mangaDao';
+import Type_Manga from './type_mangaDao';
 import MangaRepository from './mangaRepository';
 import MangaService from './mangaService';
 import MangaController from './mangaController';
