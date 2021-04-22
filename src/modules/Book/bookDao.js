@@ -13,13 +13,13 @@ class Book extends Model {
   }
 
   static associate(models) {
-    // console.log("bababababa", models)
-    // define association here
-    // this.belongsTo(models.Author, { through: Copyright });
-    // this.belongsTo(models.Author, {
-    //   as: "author",
-    //   foreignKey: 'authorId'
-    // });
+
+    this.belongsTo(models.Author, 
+      {
+        foreignKey: {
+          name: "authorId",
+        }
+      });
 
     return this;
 
