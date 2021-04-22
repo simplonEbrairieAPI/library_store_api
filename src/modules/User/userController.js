@@ -22,16 +22,16 @@ class UserController {
     }
   };
 
-  register = async (req, res) => {
-    try {
-      const user = await this.userService.register({ ...req.body });
-      res.status(201).json(user);
-    }
-    catch (err) {
-      console.error(err);
-      res.status(400).json(err.message);
-    }
-  }
+  // register = async (req, res) => {
+  //   try {
+  //     const user = await this.userService.register({ ...req.body });
+  //     res.status(201).json(user);
+  //   }
+  //   catch (err) {
+  //     console.error(err);
+  //     res.status(400).json(err.message);
+  //   }
+  // }
 
 
   // login = async (req, res) => {
