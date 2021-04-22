@@ -2,7 +2,7 @@ import { Router } from 'express';
 import { DataTypes } from 'sequelize';
 import db from '../../../config/database';
 
-import Type_Comics from './type_comicsDao';
+import Type_Comics from './type_ComicsDao';
 import ComicsRepository from './comicsRepository';
 import ComicsService from './comicsService';
 import ComicsController from './comicsController';

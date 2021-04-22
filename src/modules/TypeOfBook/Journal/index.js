@@ -2,7 +2,7 @@ import { Router } from 'express';
 import { DataTypes } from 'sequelize';
 import db from '../../../config/database';
 
-import Type_Journal from './type_journalDao';
+import Type_Journal from './type_JournalDao';
 import JournalRepository from './journalRepository';
 import JournalService from './journalService';
 import JournalController from './journalController';
@@ -15,5 +15,5 @@ const journalService = new JournalService(journalRepository);
 const journalController = new JournalController({ journalService })
 const journalRouter = new JournalRouter({ router, journalController });
 
-export { journalDao , journalService };
+export { journalDao, journalService };
 export default journalRouter;
