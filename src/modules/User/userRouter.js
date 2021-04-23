@@ -1,20 +1,17 @@
 class UserRouter {
-  constructor({ router, userController }) {
+  constructor(router, userController) {
     this.router = router;
-    this.initializeRoutes({ userController });
+    this.initializeRoutes(userController);
     return this.router;
   }
 
-  initializeRoutes({ userController }) {
+  initializeRoutes(userController) {
     this.router.route('/users')
       .get(userController.getAll)
-    // .post(userController.register);
-
+      .post(userController.register);
 
     this.router.route('/users/:id')
       .get(userController.getOne)
-
-
 
     this.router.route('/')
       .get((req, res) => {
@@ -24,5 +21,3 @@ class UserRouter {
 }
 
 export default UserRouter;
-
-
