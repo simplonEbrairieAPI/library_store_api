@@ -1,37 +1,36 @@
 class UserController {
-  constructor({ userService }) {
+  constructor(userService) {
     this.userService = userService;
   }
 
-  getAll = async ({ res }) => {
+  getAll = async (req, res, next) => {
     try {
       let users = await this.userService.getAll();
       res.status(200).json(users);
     } catch (err) {
-      res.status(400).json(err.message);
+      next(err)
     }
   }
 
-  getOne = async (req, res) => {
+  getOne = async (req, res, next) => {
     try {
       let findUser = req.params.id;
       let user = await this.userService.getOne(findUser);
       res.status(200).json(user);
     } catch (err) {
-      res.status(400).json('error in findoneuser', err.message);
+      next(err)
     }
   };
 
-  // register = async (req, res) => {
-  //   try {
-  //     const user = await this.userService.register({ ...req.body });
-  //     res.status(201).json(user);
-  //   }
-  //   catch (err) {
-  //     console.error(err);
-  //     res.status(400).json(err.message);
-  //   }
-  // }
+  register = async (req, res, next) => {
+    try {
+      const user = await this.userService.register({ ...req.body });
+      res.status(201).json(user);
+    }
+    catch (err) {
+      next(err)
+    }
+  }
 
 
   // login = async (req, res) => {
