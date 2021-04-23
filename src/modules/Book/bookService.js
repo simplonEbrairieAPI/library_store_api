@@ -1,16 +1,12 @@
 import BookEntity from './bookEntity';
 class BookService {
-  constructor(bookRepository) {
+  constructor({ bookRepository }) {
     this.bookRepo = bookRepository;
   }
 
   async getAll() {
-
     const books = await this.bookRepo.findAllBooks();
-
-    return books.map((book) => new UserEntity(book));
+    return books.map((book) => new BookEntity(book));
   }
-
-
 }
 export default BookService;
