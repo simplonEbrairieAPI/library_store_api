@@ -1,8 +1,10 @@
 class BookEntity {
-
-  constructor({ id }) {
+  constructor({ id, title, description, editors, authorId }) {
     this.id = id;
-
+    this.title = title;
+    this.description = description;
+    this.editors = editors;
+    this.authorId = authorId;
   }
 
   validate() {

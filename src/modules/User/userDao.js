@@ -9,7 +9,10 @@ class User extends Model {
         lastName: DataTypes.STRING,
         email: DataTypes.STRING,
         password: DataTypes.STRING,
-        role: DataTypes.STRING
+        role: {
+          type: DataTypes.STRING,
+          allowNull: true
+        },
       }, { sequelize, modelName: 'User', freezeTableName: true, timestamps: false }
     );
   }
@@ -21,6 +24,4 @@ class User extends Model {
 };
 
 User.init(db.sequelize, DataTypes);
-
 export default User;
-

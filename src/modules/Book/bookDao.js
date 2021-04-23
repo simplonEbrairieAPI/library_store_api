@@ -6,10 +6,16 @@ class Book extends Model {
     return super.init(
       {
         title: DataTypes.STRING,
-        description: DataTypes.STRING,
+        description: {
+          type: DataTypes.STRING,
+          // authorized field in base can be null
+          allowNull: true
+        },
         editors: DataTypes.STRING,
-        // authorId: DataTypes.INTEGER,
+        authorId: DataTypes.INTEGER,
       }, { sequelize, modelName: 'Book', freezeTableName: true, timestamps: false }
+      // freezetableName = allow table without automatic 's' (plurial) 
+      // timestamp : false  => Createdat and UpdateAt delete
     );
   }
 

@@ -54,7 +54,7 @@ allModulesFolders.forEach(folder => {
       }
     })
   }
-});
+})
 
 Object.keys(db.sequelize.models).forEach((modelName) => {
   if (db.sequelize.models[modelName]) {
@@ -62,11 +62,9 @@ Object.keys(db.sequelize.models).forEach((modelName) => {
   }
 });
 
-// console.log(db.sequelize.models)
-
 db.sequelize
-  // .authenticate()
-  .sync({ force: true })
+  .authenticate()
+  // .sync({ force: true })
   .then(() => {
     console.log(
       `Connection to ${config.database_name} has been established successfully.`
@@ -75,7 +73,6 @@ db.sequelize
   .catch((error) => {
     console.error('Unable to connect to the database:', error);
   });
-
 
 const routes =
   [
