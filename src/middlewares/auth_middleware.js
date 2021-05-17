@@ -7,13 +7,7 @@ class AuthMiddleware {
   authenticate = async (req, res, next) => {
     try {
       const authHeader = req.headers.authorization;
-      const bearer = 'Bearer';
-
-      // const token = req.cookies['auth-cookie'];
-
-      // if (!token) {
-      //   return res.status(401).json('Access denied. Your session expired');
-      // }
+      const bearer = 'Bearer ';
 
       if (!authHeader || !authHeader.startsWith(bearer)) {
         return res.status(401).json('Access denied. No credentials sent!')
