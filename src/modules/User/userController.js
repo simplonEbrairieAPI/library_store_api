@@ -42,7 +42,6 @@ class UserController {
   login = async (req, res) => {
     try {
       const user = await this.userService.login({ ...req.body });
-      console.log("controller ---", req.body)
       const token = await this.jwtService.generateToken({ id: user.id });
       res.status(200).json(token);
     } catch (err) {

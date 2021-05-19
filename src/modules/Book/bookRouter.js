@@ -8,9 +8,7 @@ class BookRouter {
   initializeRoutes({ bookController }) {
     this.router.route('/books')
       .get(bookController.getAll)
-    // .get((req, res) => {
-    //   res.json({ message: " book ça va ?" })
-    // })
+      // .patch(bookController)
   }
 }
 
