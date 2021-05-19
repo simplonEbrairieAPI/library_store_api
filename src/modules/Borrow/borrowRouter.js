@@ -1,13 +1,15 @@
 class BorrowRouter {
-  constructor({ router, borrowController }) {
+  constructor(router, borrowController) {
     this.router = router;
-    this.initializeRoutes({ borrowController })
+    this.initializeRoutes(borrowController)
     return this.router;
   }
 
-  initializeRoutes({ borrowController }) {
+  initializeRoutes( borrowController ) {
+    this.router.route('/borrow/:userId')
+      .get(borrowController.getAllLoansByUser)
+
     this.router.route('/borrow')
-      .get(borrowController.getAll)
       .post(borrowController.create);
   }
 }
