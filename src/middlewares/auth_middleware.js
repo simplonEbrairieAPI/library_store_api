@@ -14,6 +14,7 @@ class AuthMiddleware {
       }
 
       const token = authHeader.replace(bearer, '')
+
       // Verify Token
       const decoded = await this.jwt.decodeToken(token);
 

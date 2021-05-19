@@ -13,6 +13,9 @@ class UserRouter {
     this.router.route('/user/authenticate')
       .get(userController.login);
 
+    this.router.route('/user/me')
+      .get(auth.authenticate, userController.me);
+
     this.router.route('/user/:id')
       .get(auth.authenticate, userController.getOne)
 
