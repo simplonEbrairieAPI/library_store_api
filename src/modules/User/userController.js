@@ -18,7 +18,7 @@ class UserController {
   getOne = async (req, res, next) => {
     try {
       let findUser = req.params.id;
-      let user = await this.userService.getOne(findUser);
+      let user = await this.userService.getOneById(findUser);
       res.status(200).json(user);
     } catch (err) {
       // next(err)
@@ -43,13 +43,25 @@ class UserController {
     try {
       const user = await this.userService.login({ ...req.body });
       const token = await this.jwtService.generateToken({ id: user.id });
+
+      res.cookie('auth-cookie', token, { expires: false, httpOnly: true });
       res.status(200).json(token);
     } catch (err) {
       console.error(err);
       res.status(400).json(err.message);
     }
   }
-}
 
+  me = async (req, res) => {
+    try {
+      const user = await this.userService.getOneById(req.currentUserId)
+      res.status(200).json(user);
+    }
+    catch (err) {
+      console.error(err);
+      res.status(403).json(err.message);
+    }
+  }
+}
 
 export default UserController;

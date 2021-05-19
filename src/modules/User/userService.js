@@ -10,7 +10,7 @@ class UserService {
     return users.map((user) => new UserEntity(user));
   }
 
-  async getOne(findUser) {
+  async getOneById(findUser) {
     const user = await this.userRepo.findUserById(findUser);
     return user
   }
@@ -33,6 +33,7 @@ class UserService {
 
     return new UserEntity(user);
   }
+
 }
 
 export default UserService;
