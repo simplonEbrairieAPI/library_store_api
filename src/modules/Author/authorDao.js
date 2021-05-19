@@ -11,12 +11,12 @@ class Author extends Model {
     );
   }
   static associate(models) {
-    this.hasMany(models.Book, {
-      foreignKey: {
-        name: "id",
-        as: "Book"
-      }
-    });
+    // this.hasMany(models.Book, {
+    //   foreignKey: {
+    //     name: "id",
+    //     as: "Book"
+    //   }
+    // });
 
     // this.belongsToMany(models.Book, { through: "Copyright" });
     return this;

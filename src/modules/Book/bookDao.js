@@ -8,14 +8,12 @@ class Book extends Model {
         title: DataTypes.STRING,
         description: {
           type: DataTypes.STRING,
-          // authorized field in base can be null
           allowNull: true
         },
         editors: DataTypes.STRING,
         authorId: DataTypes.INTEGER,
+        quantity: DataTypes.INTEGER,
       }, { sequelize, modelName: 'Book', freezeTableName: true, timestamps: false }
-      // freezetableName = allow table without automatic 's' (plurial) 
-      // timestamp : false  => Createdat and UpdateAt delete
     );
   }
 
@@ -26,8 +24,7 @@ class Book extends Model {
           name: "authorId",
           as: "Author"
         }
-      });
-
+      })
     return this;
   }
 };

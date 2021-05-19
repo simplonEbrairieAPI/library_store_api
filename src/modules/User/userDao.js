@@ -18,7 +18,12 @@ class User extends Model {
   }
   static associate(models) {
     // define association here
-
+    // this.hasMany(models.Borrow, {
+    //   foreignKey: {
+    //     name: "id",
+    //     as: "Borrow"
+    //   }
+    // })
     return this;
   }
 };

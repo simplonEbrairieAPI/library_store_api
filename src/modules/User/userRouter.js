@@ -13,7 +13,7 @@ class UserRouter {
     this.router.route('/user/authenticate')
       .get(userController.login);
 
-    this.router.route('/users/:id')
+    this.router.route('/user/:id')
       .get(auth.authenticate, userController.getOne)
 
     this.router.route('/')

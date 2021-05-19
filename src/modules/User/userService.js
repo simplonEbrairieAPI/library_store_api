@@ -25,9 +25,6 @@ class UserService {
 
   async login(userData) {
     const userEntity = new UserEntity(userData);
-    console.log("service ----", userData)
-    console.log("service toto----", userEntity)
-
     const user = await this.userRepo.findUserByEmail(userEntity);
     if (!user) console.log("error user not found")
 

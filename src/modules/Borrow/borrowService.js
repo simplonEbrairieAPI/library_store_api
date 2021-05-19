@@ -1,19 +1,19 @@
 import BorrowEntity from './borrowEntity';
 
 class BorrowService {
-  constructor({ borrowRepository }) {
+  constructor(borrowRepository) {
     this.borrowRepo = borrowRepository;
   }
 
-  async getAll() {
-    const borrows = await this.borrowRepo.findAll();
-    return borrows.map((borrow) => new BorrowEntity(borrow));
+  async getAllLoansByUser(findUser) {
+    const loans = await this.borrowRepo.findAllLoansByUser(findUser);
+    return loans;
   }
 
   async create(borrowData) {
     const borrowEntity = new BorrowEntity(borrowData);
-    const newBorrow = await this.borrowRepo.create(borrowEntity);
-    return new BorrowEntity(newBorrow);
+    const newLoan = await this.borrowRepo.create(borrowEntity);
+    return new BorrowEntity(newLoan);
   }
 }
 

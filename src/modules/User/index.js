@@ -9,6 +9,7 @@ import UserController from "./userController";
 import UserRouter from './userRouter';
 
 const router = Router();
+
 const userRepository = new UserRepository(UserDao);
 const userService = new UserService(userRepository);
 const userController = new UserController(userService, jwtService)

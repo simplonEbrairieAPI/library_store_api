@@ -6,7 +6,17 @@ class BookService {
 
   async getAll() {
     const books = await this.bookRepo.findAllBooks();
-    return books.map((book) => new BookEntity(book));
+    return books;
+  }
+
+  async isBookAvailable(bookId) {
+    const quantity = await this.bookRepo.getStockOfABook(BookId)
+    if (quantity <= 0) return false
+    return true
+  }
+
+  async incrementBookQuantity (bookId) {
+    //
   }
 }
 export default BookService;
