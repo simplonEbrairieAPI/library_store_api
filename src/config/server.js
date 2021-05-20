@@ -5,7 +5,11 @@ class Server {
     this.app = express();
     this.initializeBodyParsing(express);
     this.initializeMiddlewares(middlewares);
+<<<<<<< HEAD
     this.initializeApplicationRouter(routes); // INFO Initialiser les routes en dernier ! (après les middlewares et le parsing)
+=======
+    this.initializeApplicationRouter(routes);
+>>>>>>> 4328fb9422ebd0f559e2058f9000619d5d768e72
   }
 
   initializeBodyParsing(express) {
