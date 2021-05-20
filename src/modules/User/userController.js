@@ -15,10 +15,10 @@ class UserController {
     }
   }
 
-  getOne = async (req, res, next) => {
+  getOneById = async (req, res, next) => {
     try {
-      let findUser = req.params.id;
-      let user = await this.userService.getOneById(findUser);
+      let userId = req.params.id;
+      let user = await this.userService.getOneById(userId);
       res.status(200).json(user);
     } catch (err) {
       // next(err)
@@ -29,11 +29,20 @@ class UserController {
 
   register = async (req, res, next) => {
     try {
-      const user = await this.userService.register({ ...req.body });
-      res.status(201).json({
-        success: true,
-        user: user
-      });
+      const { email } = req.body
+      const userExist = await this.userService.getOneByEmail(email)
+      if (!userExist) {
+        const user = await this.userService.register({ ...req.body });
+        res.status(201).json({
+          success: true,
+          user: user
+        });
+      } else {
+        res.status(200).json({
+          success: false,
+          error: "On connait déjà cet email..."
+        });
+      }
     }
     catch (err) {
       // next(err)
