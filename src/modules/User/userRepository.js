@@ -12,12 +12,12 @@ class UserRepository {
     return await this.userDao.findAll();
   }
 
-  async findUserById(findUser) {
-    return await this.userDao.findOne({ where: { id: findUser } })
+  async findUserById(userId) {
+    return await this.userDao.findOne({ where: { id: userId } })
   }
 
-  async findUserByEmail(findUser) {
-    return await this.userDao.findOne({ where: { email: findUser.email } })
+  async findUserByEmail(email) {
+    return await this.userDao.findOne({ where: { email: email } })
   }
 
   async createUser(userData) {

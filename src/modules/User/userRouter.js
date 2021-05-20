@@ -17,7 +17,7 @@ class UserRouter {
       .get(auth.authenticate, userController.me);
 
     this.router.route('/user/:id')
-      .get(auth.authenticate, userController.getOne)
+      .get(auth.authenticate, userController.getOneById)
 
     this.router.route('/')
       .get((req, res) => {
