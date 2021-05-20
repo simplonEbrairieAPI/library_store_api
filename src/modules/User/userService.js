@@ -26,10 +26,13 @@ class UserService {
   async login(userData) {
     const userEntity = new UserEntity(userData);
     const user = await this.userRepo.findUserByEmail(userEntity);
-    if (!user) console.log("error user not found")
-
+    if (!user) {
+      return false
+    }
     const passwordCheck = await this.userRepo.compareHash(userEntity.password, user.password);
-    if (!passwordCheck) console.log("error password don't match")
+    if (!passwordCheck) {
+      return false
+    }
 
     return new UserEntity(user);
   }

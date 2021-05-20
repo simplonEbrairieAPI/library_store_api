@@ -11,7 +11,7 @@ class UserRouter {
       .post(userController.register);
 
     this.router.route('/user/authenticate')
-      .get(userController.login);
+      .post(userController.login);
 
     this.router.route('/user/me')
       .get(auth.authenticate, userController.me);
