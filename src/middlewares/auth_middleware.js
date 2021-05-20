@@ -6,15 +6,10 @@ class AuthMiddleware {
 
   authenticate = async (req, res, next) => {
     try {
-      const authHeader = req.headers.authorization;
-      const bearer = 'Bearer ';
-
-      if (!authHeader || !authHeader.startsWith(bearer)) {
+      const token = req.cookies?.token || req.signedCookies?.token;
+      if (!token) {
         return res.status(401).json('Access denied. No credentials sent!')
       }
-
-      const token = authHeader.replace(bearer, '')
-
       // Verify Token
       const decoded = await this.jwt.decodeToken(token);
 
