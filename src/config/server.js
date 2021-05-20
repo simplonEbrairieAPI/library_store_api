@@ -4,8 +4,8 @@ class Server {
   constructor({ express, routes, middlewares }) {
     this.app = express();
     this.initializeBodyParsing(express);
-    this.initializeApplicationRouter(routes);
     this.initializeMiddlewares(middlewares);
+    this.initializeApplicationRouter(routes);
   }
 
   initializeBodyParsing(express) {
