@@ -4,15 +4,15 @@ class Server {
   constructor({ express, routes, middlewares }) {
     this.app = express();
     this.initializeBodyParsing(express);
-    this.initializeApplicationRouter(routes);
     this.initializeMiddlewares(middlewares);
+    this.initializeApplicationRouter(routes); // INFO Initialiser les routes en dernier ! (après les middlewares et le parsing)
   }
 
   initializeBodyParsing(express) {
     this.app.use(express.urlencoded({ extended: false }));
     this.app.use(express.json());
     this.app.use(cors({
-      origin: 'https://localhost:1234',
+      origin: 'http://localhost:1234',
       credentials: true,
     }))
   }
@@ -21,7 +21,7 @@ class Server {
     this.app.use(routes);
   }
 
-  initializeMiddlewares({ cookieParser, csrf, morgan }) {
+  initializeMiddlewares({ csrf, cookieParser, morgan }) {
     this.app.use(cookieParser())
     this.app.use(morgan('dev'));
 
