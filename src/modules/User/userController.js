@@ -40,7 +40,7 @@ class UserController {
       } else {
         res.status(200).json({
           success: false,
-          error: "On connait déjà cet email..."
+          error: "we already know this email..."
         });
       }
     }
@@ -84,7 +84,13 @@ class UserController {
   me = async (req, res) => {
     try {
       const user = await this.userService.getOneById(req.currentUserId)
-      res.status(200).json(user);
+      res.status(200).json({
+        user: {
+          firstName: user.firstName,
+          lastName: user.lastName,
+          email: user.email
+        }
+      });
     }
     catch (err) {
       console.error(err);
